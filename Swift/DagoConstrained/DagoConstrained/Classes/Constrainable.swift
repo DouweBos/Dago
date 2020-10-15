@@ -8,19 +8,17 @@
 import Foundation
 import UIKit
 
-public protocol Constrainable {}
-
-public protocol CustomAddChildView {
+public protocol ConstrainedCustomAddChildView {
     func addChild(view: UIView)
 }
 
-extension UIStackView: CustomAddChildView {
+extension UIStackView: ConstrainedCustomAddChildView {
     public func addChild(view: UIView) {
         addArrangedSubview(view)
     }
 }
 
-public extension Constrainable where Self: UIView {
+public extension ConstrainedCompatible where Self: UIView {
     @discardableResult
     static func instance(
         initializer: (() -> Self)? = nil,
@@ -48,8 +46,6 @@ public extension Constrainable where Self: UIView {
         }
     }
 }
-
-extension UIView: Constrainable {}
 
 public extension UIStackView {
     @discardableResult
