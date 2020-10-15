@@ -1,0 +1,6 @@
+framework module Pods_DagoConstrained_Tests {
+  umbrella header "Pods-DagoConstrained_Tests-umbrella.h"
+
+  export *
+  module * { export * }
+}

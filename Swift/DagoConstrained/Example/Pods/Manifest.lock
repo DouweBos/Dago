@@ -1,0 +1,16 @@
+PODS:
+  - DagoConstrained (0.1.0)
+
+DEPENDENCIES:
+  - DagoConstrained (from `../`)
+
+EXTERNAL SOURCES:
+  DagoConstrained:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  DagoConstrained: 476e191cb18ba4f90f35621a48ff6f87b12ceb07
+
+PODFILE CHECKSUM: 8ada67d92185b1a8444cb7b10433f780368e2709
+
+COCOAPODS: 1.9.3

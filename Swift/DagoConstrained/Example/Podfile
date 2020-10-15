@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'DagoConstrained_Example' do
+  pod 'DagoConstrained', :path => '../'
+
+  target 'DagoConstrained_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end
