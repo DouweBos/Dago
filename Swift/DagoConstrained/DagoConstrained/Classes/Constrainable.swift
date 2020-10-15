@@ -36,7 +36,7 @@ public extension ConstrainedCompatible where Self: UIView {
         handler: ((Self) throws -> Void)? = nil
     ) rethrows -> Self {
         return try Self.instance(initializer: initializer) { instance in
-            if let parentStackview = parentView as? CustomAddChildView {
+            if let parentStackview = parentView as? ConstrainedCustomAddChildView {
                 parentStackview.addChild(view: instance)
             } else {
                 parentView.addSubview(instance)
