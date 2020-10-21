@@ -19,7 +19,7 @@ The final goal is to be able to write UI code on either Android (Kotlin) or iOS 
   s.homepage         = 'https://github.com/douwebos/Dago-Swift'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'douwebos' => 'douwe@douwebos.nl' }
-  s.source           = { :git => 'https://github.com/douwebos/Dago-iOS.git', :tag => s.version.to_s }
+  s.source           = { :git => 'https://github.com/douwebos/Dago-Swift.git', :tag => s.version.to_s }
   s.social_media_url = 'https://twitter.com/douwebos_nl'
 
   s.platform     = :ios, :tvos
