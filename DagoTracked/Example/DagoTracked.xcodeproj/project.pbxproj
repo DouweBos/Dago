@@ -15,6 +15,12 @@
 		607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDE1AFB9204008FA782 /* LaunchScreen.xib */; };
 		607FACEC1AFB9204008FA782 /* Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACEB1AFB9204008FA782 /* Tests.swift */; };
 		7A10AF1438007D09B7D614B7 /* Pods_DagoTracked_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5B412153B9AB71ABDDAC83F6 /* Pods_DagoTracked_Tests.framework */; };
+		B21CB1C7A8FCDFB6CEF71E80 /* Pods_DagoTracked_tvOS_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 258CF493996626AB869A1DC2 /* Pods_DagoTracked_tvOS_Example.framework */; };
+		D9317B18254075CD000F0EA0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9317B17254075CD000F0EA0 /* AppDelegate.swift */; };
+		D9317B1A254075CD000F0EA0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9317B19254075CD000F0EA0 /* ViewController.swift */; };
+		D9317B1D254075CD000F0EA0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D9317B1B254075CD000F0EA0 /* Main.storyboard */; };
+		D9317B1F254075CE000F0EA0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D9317B1E254075CE000F0EA0 /* Assets.xcassets */; };
+		D9317B22254075CE000F0EA0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D9317B20254075CE000F0EA0 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -28,7 +34,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		3FB82A73A6870EA27589F384 /* DagoTracked.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = DagoTracked.podspec; path = ../DagoTracked.podspec; sourceTree = "<group>"; };
+		258CF493996626AB869A1DC2 /* Pods_DagoTracked_tvOS_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DagoTracked_tvOS_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5B412153B9AB71ABDDAC83F6 /* Pods_DagoTracked_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DagoTracked_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5CF38C3C24D4ED180922193B /* Pods-DagoTracked_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DagoTracked_Tests.debug.xcconfig"; path = "Target Support Files/Pods-DagoTracked_Tests/Pods-DagoTracked_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		607FACD01AFB9204008FA782 /* DagoTracked_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DagoTracked_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -44,7 +50,16 @@
 		733E42C09ED2228175883F95 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		97E58FAFF9B52F9CB34CFC5B /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		9BA5E18DCD03CC64D5881A28 /* Pods-DagoTracked_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DagoTracked_Tests.release.xcconfig"; path = "Target Support Files/Pods-DagoTracked_Tests/Pods-DagoTracked_Tests.release.xcconfig"; sourceTree = "<group>"; };
+		CA4629C199E57F0BBC5824FB /* Pods-DagoTracked_tvOS_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DagoTracked_tvOS_Example.debug.xcconfig"; path = "Target Support Files/Pods-DagoTracked_tvOS_Example/Pods-DagoTracked_tvOS_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		D9317ADC25406FFE000F0EA0 /* DagoTracked_Example.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = DagoTracked_Example.entitlements; sourceTree = "<group>"; };
+		D9317B15254075CD000F0EA0 /* DagoTracked_tvOS_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DagoTracked_tvOS_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D9317B17254075CD000F0EA0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		D9317B19254075CD000F0EA0 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		D9317B1C254075CD000F0EA0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		D9317B1E254075CE000F0EA0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		D9317B21254075CE000F0EA0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		D9317B23254075CE000F0EA0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E343347FFF400C666E0FE842 /* Pods-DagoTracked_tvOS_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DagoTracked_tvOS_Example.release.xcconfig"; path = "Target Support Files/Pods-DagoTracked_tvOS_Example/Pods-DagoTracked_tvOS_Example.release.xcconfig"; sourceTree = "<group>"; };
 		E50130AC73E487310F4A1B19 /* Pods-DagoTracked_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DagoTracked_Example.debug.xcconfig"; path = "Target Support Files/Pods-DagoTracked_Example/Pods-DagoTracked_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		E9AA30C29EDBDC75618BAB8C /* Pods_DagoTracked_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DagoTracked_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB852EE04BEF0C5AE81CC6E1 /* Pods-DagoTracked_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DagoTracked_Example.release.xcconfig"; path = "Target Support Files/Pods-DagoTracked_Example/Pods-DagoTracked_Example.release.xcconfig"; sourceTree = "<group>"; };
@@ -67,6 +82,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		D9317B12254075CD000F0EA0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B21CB1C7A8FCDFB6CEF71E80 /* Pods_DagoTracked_tvOS_Example.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -75,6 +98,7 @@
 			children = (
 				E9AA30C29EDBDC75618BAB8C /* Pods_DagoTracked_Example.framework */,
 				5B412153B9AB71ABDDAC83F6 /* Pods_DagoTracked_Tests.framework */,
+				258CF493996626AB869A1DC2 /* Pods_DagoTracked_tvOS_Example.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -86,6 +110,7 @@
 				607FACF51AFB993E008FA782 /* Podspec Metadata */,
 				607FACD21AFB9204008FA782 /* Example for DagoTracked */,
 				607FACE81AFB9204008FA782 /* Tests */,
+				D9317B16254075CD000F0EA0 /* DagoTracked-tvOS-Example */,
 				607FACD11AFB9204008FA782 /* Products */,
 				79A833015E0CC3BBAB6C3EC9 /* Pods */,
 				0B04576535267703D7457770 /* Frameworks */,
@@ -97,6 +122,7 @@
 			children = (
 				607FACD01AFB9204008FA782 /* DagoTracked_Example.app */,
 				607FACE51AFB9204008FA782 /* DagoTracked_Tests.xctest */,
+				D9317B15254075CD000F0EA0 /* DagoTracked_tvOS_Example.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -143,7 +169,6 @@
 		607FACF51AFB993E008FA782 /* Podspec Metadata */ = {
 			isa = PBXGroup;
 			children = (
-				3FB82A73A6870EA27589F384 /* DagoTracked.podspec */,
 				733E42C09ED2228175883F95 /* README.md */,
 				97E58FAFF9B52F9CB34CFC5B /* LICENSE */,
 			);
@@ -157,8 +182,23 @@
 				EB852EE04BEF0C5AE81CC6E1 /* Pods-DagoTracked_Example.release.xcconfig */,
 				5CF38C3C24D4ED180922193B /* Pods-DagoTracked_Tests.debug.xcconfig */,
 				9BA5E18DCD03CC64D5881A28 /* Pods-DagoTracked_Tests.release.xcconfig */,
+				CA4629C199E57F0BBC5824FB /* Pods-DagoTracked_tvOS_Example.debug.xcconfig */,
+				E343347FFF400C666E0FE842 /* Pods-DagoTracked_tvOS_Example.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		D9317B16254075CD000F0EA0 /* DagoTracked-tvOS-Example */ = {
+			isa = PBXGroup;
+			children = (
+				D9317B17254075CD000F0EA0 /* AppDelegate.swift */,
+				D9317B19254075CD000F0EA0 /* ViewController.swift */,
+				D9317B1B254075CD000F0EA0 /* Main.storyboard */,
+				D9317B1E254075CE000F0EA0 /* Assets.xcassets */,
+				D9317B20254075CE000F0EA0 /* LaunchScreen.storyboard */,
+				D9317B23254075CE000F0EA0 /* Info.plist */,
+			);
+			path = "DagoTracked-tvOS-Example";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -202,13 +242,32 @@
 			productReference = 607FACE51AFB9204008FA782 /* DagoTracked_Tests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		D9317B14254075CD000F0EA0 /* DagoTracked_tvOS_Example */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D9317B40254075CE000F0EA0 /* Build configuration list for PBXNativeTarget "DagoTracked_tvOS_Example" */;
+			buildPhases = (
+				5F720AB3ED771D6AC149EFDE /* [CP] Check Pods Manifest.lock */,
+				D9317B11254075CD000F0EA0 /* Sources */,
+				D9317B12254075CD000F0EA0 /* Frameworks */,
+				D9317B13254075CD000F0EA0 /* Resources */,
+				7F0132A72048E61F91A373D5 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = DagoTracked_tvOS_Example;
+			productName = "DagoTracked-tvOS-Example";
+			productReference = D9317B15254075CD000F0EA0 /* DagoTracked_tvOS_Example.app */;
+			productType = "com.apple.product-type.application";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		607FACC81AFB9204008FA782 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0830;
+				LastSwiftUpdateCheck = 1200;
 				LastUpgradeCheck = 1200;
 				ORGANIZATIONNAME = CocoaPods;
 				TargetAttributes = {
@@ -222,6 +281,11 @@
 						DevelopmentTeam = CKZT75PN5T;
 						LastSwiftMigration = 0900;
 						TestTargetID = 607FACCF1AFB9204008FA782;
+					};
+					D9317B14254075CD000F0EA0 = {
+						CreatedOnToolsVersion = 12.0;
+						DevelopmentTeam = CKZT75PN5T;
+						ProvisioningStyle = Automatic;
 					};
 				};
 			};
@@ -241,6 +305,7 @@
 			targets = (
 				607FACCF1AFB9204008FA782 /* DagoTracked_Example */,
 				607FACE41AFB9204008FA782 /* DagoTracked_Tests */,
+				D9317B14254075CD000F0EA0 /* DagoTracked_tvOS_Example */,
 			);
 		};
 /* End PBXProject section */
@@ -263,9 +328,65 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		D9317B13254075CD000F0EA0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D9317B22254075CE000F0EA0 /* LaunchScreen.storyboard in Resources */,
+				D9317B1F254075CE000F0EA0 /* Assets.xcassets in Resources */,
+				D9317B1D254075CD000F0EA0 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		5F720AB3ED771D6AC149EFDE /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-DagoTracked_tvOS_Example-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7F0132A72048E61F91A373D5 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-DagoTracked_tvOS_Example/Pods-DagoTracked_tvOS_Example-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/DagoTracked-tvOS/DagoTracked.framework",
+				"${BUILT_PRODUCTS_DIR}/RxCocoa-tvOS/RxCocoa.framework",
+				"${BUILT_PRODUCTS_DIR}/RxRelay-tvOS/RxRelay.framework",
+				"${BUILT_PRODUCTS_DIR}/RxSwift-tvOS/RxSwift.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DagoTracked.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxRelay.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-DagoTracked_tvOS_Example/Pods-DagoTracked_tvOS_Example-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		9010312C81CE0A0A8F534A05 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -273,10 +394,10 @@
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-DagoTracked_Example/Pods-DagoTracked_Example-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/DagoTracked/DagoTracked.framework",
-				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
-				"${BUILT_PRODUCTS_DIR}/RxRelay/RxRelay.framework",
-				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/DagoTracked-iOS/DagoTracked.framework",
+				"${BUILT_PRODUCTS_DIR}/RxCocoa-iOS/RxCocoa.framework",
+				"${BUILT_PRODUCTS_DIR}/RxRelay-iOS/RxRelay.framework",
+				"${BUILT_PRODUCTS_DIR}/RxSwift-iOS/RxSwift.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
@@ -354,6 +475,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		D9317B11254075CD000F0EA0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D9317B1A254075CD000F0EA0 /* ViewController.swift in Sources */,
+				D9317B18254075CD000F0EA0 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -379,6 +509,22 @@
 				607FACDF1AFB9204008FA782 /* Base */,
 			);
 			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+		D9317B1B254075CD000F0EA0 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D9317B1C254075CD000F0EA0 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		D9317B20254075CE000F0EA0 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D9317B21254075CE000F0EA0 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -571,6 +717,63 @@
 			};
 			name = Release;
 		};
+		D9317B3A254075CE000F0EA0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = CA4629C199E57F0BBC5824FB /* Pods-DagoTracked_tvOS_Example.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_STYLE = Automatic;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = CKZT75PN5T;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = "DagoTracked-tvOS-Example/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.djbsoftware.DagoTracked-tvOS-Example";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = appletvos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 14.0;
+			};
+			name = Debug;
+		};
+		D9317B3B254075CE000F0EA0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E343347FFF400C666E0FE842 /* Pods-DagoTracked_tvOS_Example.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = CKZT75PN5T;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = "DagoTracked-tvOS-Example/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.djbsoftware.DagoTracked-tvOS-Example";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = appletvos;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 14.0;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -597,6 +800,15 @@
 			buildConfigurations = (
 				607FACF31AFB9204008FA782 /* Debug */,
 				607FACF41AFB9204008FA782 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D9317B40254075CE000F0EA0 /* Build configuration list for PBXNativeTarget "DagoTracked_tvOS_Example" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D9317B3A254075CE000F0EA0 /* Debug */,
+				D9317B3B254075CE000F0EA0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

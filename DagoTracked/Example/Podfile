@@ -9,3 +9,7 @@ target 'DagoTracked_Example' do
     
   end
 end
+
+target 'DagoTracked_tvOS_Example' do
+  pod 'DagoTracked', :path => '../../'
+end

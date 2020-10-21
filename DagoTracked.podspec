@@ -8,12 +8,12 @@
 
 Pod::Spec.new do |s|
   s.name             = 'DagoTracked'
-  s.version          = '0.1.2'
+  s.version          = '0.1.3'
   s.summary          = 'Swift implementation of the Dago Tracked API.'
 
   s.description      = <<-DESC
 Dago Tracked is a wrapper around existing RxCocoa APIs for easy tracking of user interaction, and cross platform sharing of logic and code.
-The final goal is to be able to write UI code on either Android (Kotlin) or iOS (Swift), have easy button tap etc tracked in Mixpanel or other user analytics packages, and to be able to run the code on the other platform with minimal changes required.
+The final goal is to be able to write UI code on either Android (Kotlin) or iOS (Swift), easily track button taps etc in Mixpanel or other user analytics packages, and to be able to run the code on the other platform with minimal changes required.
                        DESC
 
   s.homepage         = 'https://github.com/douwebos/Dago-Swift'

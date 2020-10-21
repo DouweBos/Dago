@@ -42,7 +42,6 @@
 		607FACEB1AFB9204008FA782 /* Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests.swift; sourceTree = "<group>"; };
 		9D6D5939FAAE1F57ACDD2F2E /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		A934022A65C79A31E950F5D7 /* Pods-DagoConstrained_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DagoConstrained_Example.release.xcconfig"; path = "Target Support Files/Pods-DagoConstrained_Example/Pods-DagoConstrained_Example.release.xcconfig"; sourceTree = "<group>"; };
-		C7B5C09F8B5813DD1B8EF118 /* DagoConstrained.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = DagoConstrained.podspec; path = ../DagoConstrained.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		D1875C06A24EC8A85B636BC1 /* Pods-DagoConstrained_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DagoConstrained_Tests.debug.xcconfig"; path = "Target Support Files/Pods-DagoConstrained_Tests/Pods-DagoConstrained_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		D9317A9F25405C2F000F0EA0 /* TrackingEvents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackingEvents.swift; sourceTree = "<group>"; };
 		EC5E8CE995568041EC82E4F2 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
@@ -141,7 +140,6 @@
 		607FACF51AFB993E008FA782 /* Podspec Metadata */ = {
 			isa = PBXGroup;
 			children = (
-				C7B5C09F8B5813DD1B8EF118 /* DagoConstrained.podspec */,
 				EC5E8CE995568041EC82E4F2 /* README.md */,
 				9D6D5939FAAE1F57ACDD2F2E /* LICENSE */,
 			);

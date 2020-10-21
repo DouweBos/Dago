@@ -71,6 +71,7 @@ import class Foundation.NSObject
 
 extension NSObject: TrackedCompatible { }
 
+#if os(iOS)
 extension Tracked where Base: UIButton {
     public func tap<Event: TrackedEvent>(_ event: Event, block: @escaping (() -> Swift.Void)) -> Disposable {
         return self.base.rx.tap
@@ -94,7 +95,35 @@ extension Tracked where Base: UIButton {
             )
     }
 }
+#endif
 
+#if os(tvOS)
+extension Tracked where Base: UIButton {
+    public func tap<Event: TrackedEvent>(_ event: Event, block: @escaping (() -> Swift.Void)) -> Disposable {
+        return self.base.rx.primaryAction
+            .subscribe(
+                onNext: {
+                    event.post()
+                    
+                    block()
+                }
+            )
+    }
+    
+    public func tap<Event: TrackedEvent>(block: @escaping (() -> Swift.Void), event: @escaping (() -> Event)) -> Disposable {
+        return self.base.rx.primaryAction
+            .subscribe(
+                onNext: {
+                    event().post()
+                    
+                    block()
+                }
+            )
+    }
+}
+#endif
+
+#if os(iOS)
 extension Tracked where Base: UISwitch {
     public func value<Event: TrackedEvent>(skip: Int = 0, _ event: Event, block: @escaping ((Bool) -> Swift.Void)) -> Disposable {
         return self.base.rx.value
@@ -120,6 +149,7 @@ extension Tracked where Base: UISwitch {
             )
     }
 }
+#endif
 
 extension Tracked where Base: UIBarButtonItem {
     public func tap<Event: TrackedEvent>(_ event: Event, block: @escaping (() -> Swift.Void)) -> Disposable {
@@ -140,6 +170,54 @@ extension Tracked where Base: UIBarButtonItem {
                     event().post()
                     
                     block()
+                }
+            )
+    }
+}
+
+extension Tracked where Base: UITextField {
+    public func text<Event: TrackedEvent>(_ event: Event, block: @escaping ((String?) -> Swift.Void)) -> Disposable {
+        return self.base.rx.text
+            .subscribe(
+                onNext: { newText in
+                    event.post()
+                    
+                    block(newText)
+                }
+            )
+    }
+    
+    public func text<Event: TrackedEvent>(block: @escaping ((String?) -> Swift.Void), event: @escaping ((String?) -> Event)) -> Disposable {
+        return self.base.rx.text
+            .subscribe(
+                onNext: { newText in
+                    event(newText).post()
+                    
+                    block(newText)
+                }
+            )
+    }
+}
+
+extension Tracked where Base: UISegmentedControl {
+    public func value<Event: TrackedEvent>(_ event: Event, block: @escaping ((Int) -> Swift.Void)) -> Disposable {
+        return self.base.rx.value
+            .subscribe(
+                onNext: { newText in
+                    event.post()
+                    
+                    block(newText)
+                }
+            )
+    }
+    
+    public func value<Event: TrackedEvent>(block: @escaping ((Int) -> Swift.Void), event: @escaping ((Int) -> Event)) -> Disposable {
+        return self.base.rx.value
+            .subscribe(
+                onNext: { newText in
+                    event(newText).post()
+                    
+                    block(newText)
                 }
             )
     }
