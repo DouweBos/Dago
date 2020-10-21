@@ -16,7 +16,7 @@ Dago Constrained is a wrapper around existing layout APIs for easy UI creation, 
 The final goal is to be able to write UI code on either Android (Kotlin) or iOS (Swift), have easy button tap etc tracked in Mixpanel or other user analytics packages, and to be able to run the code on the other platform with minimal changes required.
                        DESC
 
-  s.homepage         = 'https://github.com/douwebos/Dago-iOS'
+  s.homepage         = 'https://github.com/douwebos/Dago-Swift'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'douwebos' => 'douwe@douwebos.nl' }
   s.source           = { :git => 'https://github.com/douwebos/Dago-iOS.git', :tag => s.version.to_s }
