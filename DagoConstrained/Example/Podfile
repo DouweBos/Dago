@@ -3,6 +3,8 @@ use_frameworks!
 target 'DagoConstrained_Example' do
   pod 'DagoConstrained', :path => '../'
 
+  pod "RxGesture"
+  
   target 'DagoConstrained_Tests' do
     inherit! :search_paths
 

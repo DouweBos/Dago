@@ -20,5 +20,13 @@
     "ios": "10.0",
     "tvos": "10.0"
   },
-  "source_files": "DagoConstrained/Classes/**/*"
+  "source_files": "DagoConstrained/Classes/**/*",
+  "dependencies": {
+    "RxSwift": [
+      "~> 5"
+    ],
+    "RxCocoa": [
+      "~> 5"
+    ]
+  }
 }

@@ -7,6 +7,8 @@
 
 import Foundation
 import UIKit
+import RxSwift
+import RxCocoa
 
 public protocol TrackedEvent {
     associatedtype TrackedEventProperties
@@ -69,6 +71,26 @@ import class Foundation.NSObject
 
 extension NSObject: TrackedCompatible { }
 
-extension TrackedCompatible where Self: UIButton {
-    func tap(_ event: TrackedEvent) -> Obser
+extension Tracked where Base: UIButton {
+    public func tap<Event: TrackedEvent>(_ event: Event, block: @escaping (() -> Swift.Void)) -> Disposable {
+        return self.base.rx.tap
+            .subscribe(
+                onNext: {
+                    event.post()
+                    
+                    block()
+                }
+            )
+    }
+    
+    public func tap<Event: TrackedEvent>(block: @escaping (() -> Swift.Void), event: @escaping (() -> Event)) -> Disposable {
+        return self.base.rx.tap
+            .subscribe(
+                onNext: {
+                    event().post()
+                    
+                    block()
+                }
+            )
+    }
 }

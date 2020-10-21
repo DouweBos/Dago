@@ -14,6 +14,7 @@
 		607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDE1AFB9204008FA782 /* LaunchScreen.xib */; };
 		607FACEC1AFB9204008FA782 /* Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACEB1AFB9204008FA782 /* Tests.swift */; };
 		B6B3EB9E02C2A95053D0BED3 /* Pods_DagoConstrained_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE467C80FF21AE6F5A995C49 /* Pods_DagoConstrained_Example.framework */; };
+		D9317AA025405C2F000F0EA0 /* TrackingEvents.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9317A9F25405C2F000F0EA0 /* TrackingEvents.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,6 +44,7 @@
 		A934022A65C79A31E950F5D7 /* Pods-DagoConstrained_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DagoConstrained_Example.release.xcconfig"; path = "Target Support Files/Pods-DagoConstrained_Example/Pods-DagoConstrained_Example.release.xcconfig"; sourceTree = "<group>"; };
 		C7B5C09F8B5813DD1B8EF118 /* DagoConstrained.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = DagoConstrained.podspec; path = ../DagoConstrained.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		D1875C06A24EC8A85B636BC1 /* Pods-DagoConstrained_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DagoConstrained_Tests.debug.xcconfig"; path = "Target Support Files/Pods-DagoConstrained_Tests/Pods-DagoConstrained_Tests.debug.xcconfig"; sourceTree = "<group>"; };
+		D9317A9F25405C2F000F0EA0 /* TrackingEvents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackingEvents.swift; sourceTree = "<group>"; };
 		EC5E8CE995568041EC82E4F2 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		EE467C80FF21AE6F5A995C49 /* Pods_DagoConstrained_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DagoConstrained_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -102,6 +104,7 @@
 			children = (
 				607FACD51AFB9204008FA782 /* AppDelegate.swift */,
 				607FACD71AFB9204008FA782 /* ViewController.swift */,
+				D9317A9F25405C2F000F0EA0 /* TrackingEvents.swift */,
 				607FACDC1AFB9204008FA782 /* Images.xcassets */,
 				607FACDE1AFB9204008FA782 /* LaunchScreen.xib */,
 				607FACD31AFB9204008FA782 /* Supporting Files */,
@@ -268,10 +271,18 @@
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-DagoConstrained_Example/Pods-DagoConstrained_Example-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/DagoConstrained/DagoConstrained.framework",
+				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
+				"${BUILT_PRODUCTS_DIR}/RxGesture/RxGesture.framework",
+				"${BUILT_PRODUCTS_DIR}/RxRelay/RxRelay.framework",
+				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DagoConstrained.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxGesture.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxRelay.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -330,6 +341,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				607FACD81AFB9204008FA782 /* ViewController.swift in Sources */,
+				D9317AA025405C2F000F0EA0 /* TrackingEvents.swift in Sources */,
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
