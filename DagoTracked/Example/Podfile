@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'DagoTracked_Example' do
+  pod 'DagoTracked', :path => '../'
+
+  target 'DagoTracked_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end

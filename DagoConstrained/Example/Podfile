@@ -2,6 +2,7 @@ use_frameworks!
 
 target 'DagoConstrained_Example' do
   pod 'DagoConstrained', :path => '../'
+  pod 'DagoTracked', :path => '../../DagoTracked'
 
   pod "RxGesture"
   

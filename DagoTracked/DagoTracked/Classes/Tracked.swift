@@ -1,8 +1,8 @@
 //
 //  Tracked.swift
-//  DagoConstrained
+//  DagoTracked
 //
-//  Created by Douwe Bos on 20/10/20.
+//  Created by Douwe Bos on 21/10/20.
 //
 
 import Foundation
@@ -72,6 +72,56 @@ import class Foundation.NSObject
 extension NSObject: TrackedCompatible { }
 
 extension Tracked where Base: UIButton {
+    public func tap<Event: TrackedEvent>(_ event: Event, block: @escaping (() -> Swift.Void)) -> Disposable {
+        return self.base.rx.tap
+            .subscribe(
+                onNext: {
+                    event.post()
+                    
+                    block()
+                }
+            )
+    }
+    
+    public func tap<Event: TrackedEvent>(block: @escaping (() -> Swift.Void), event: @escaping (() -> Event)) -> Disposable {
+        return self.base.rx.tap
+            .subscribe(
+                onNext: {
+                    event().post()
+                    
+                    block()
+                }
+            )
+    }
+}
+
+extension Tracked where Base: UISwitch {
+    public func value<Event: TrackedEvent>(skip: Int = 0, _ event: Event, block: @escaping ((Bool) -> Swift.Void)) -> Disposable {
+        return self.base.rx.value
+            .skip(skip)
+            .subscribe(
+                onNext: { value in
+                    event.post()
+                    
+                    block(value)
+                }
+            )
+    }
+    
+    public func value<Event: TrackedEvent>(skip: Int = 0, block: @escaping ((Bool) -> Swift.Void), event: @escaping ((Bool) -> Event)) -> Disposable {
+        return self.base.rx.value
+            .skip(skip)
+            .subscribe(
+                onNext: { value in
+                    event(value).post()
+                    
+                    block(value)
+                }
+            )
+    }
+}
+
+extension Tracked where Base: UIBarButtonItem {
     public func tap<Event: TrackedEvent>(_ event: Event, block: @escaping (() -> Swift.Void)) -> Disposable {
         return self.base.rx.tap
             .subscribe(

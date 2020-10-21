@@ -1,0 +1,32 @@
+{
+  "name": "DagoTracked",
+  "version": "0.1.0",
+  "summary": "Swift implementation of the Dago Tracked API.",
+  "description": "Dago Tracked is a wrapper around existing RxCocoa APIs for easy tracking of user interaction, and cross platform sharing of logic and code.\nThe final goal is to be able to write UI code on either Android (Kotlin) or iOS (Swift), have easy button tap etc tracked in Mixpanel or other user analytics packages, and to be able to run the code on the other platform with minimal changes required.",
+  "homepage": "https://github.com/douwebos/Dago-iOS",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "douwebos": "douwe@douwebos.nl"
+  },
+  "source": {
+    "git": "https://github.com/douwebos/Dago.git",
+    "tag": "0.1.0"
+  },
+  "social_media_url": "https://twitter.com/douwebos_nl",
+  "platforms": {
+    "ios": "10.0",
+    "tvos": "10.0"
+  },
+  "source_files": "DagoTracked/Classes/**/*",
+  "dependencies": {
+    "RxSwift": [
+      "~> 5"
+    ],
+    "RxCocoa": [
+      "~> 5"
+    ]
+  }
+}

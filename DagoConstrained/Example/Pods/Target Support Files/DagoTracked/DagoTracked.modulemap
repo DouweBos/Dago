@@ -1,0 +1,6 @@
+framework module DagoTracked {
+  umbrella header "DagoTracked-umbrella.h"
+
+  export *
+  module * { export * }
+}
