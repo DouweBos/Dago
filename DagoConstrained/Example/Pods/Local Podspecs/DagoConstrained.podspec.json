@@ -1,6 +1,6 @@
 {
   "name": "DagoConstrained",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "summary": "Swift implementation of the Dago Constrained API.",
   "description": "Dago Constrained is a wrapper around existing layout APIs for easy UI creation, and cross platform sharing of logic and code. \nThe final goal is to be able to write UI code on either Android (Kotlin) or iOS (Swift), and to be able to run the code with the other platform with minimal changes required.",
   "homepage": "https://github.com/douwebos/Dago",
@@ -13,7 +13,7 @@
   },
   "source": {
     "git": "https://github.com/douwebos/Dago.git",
-    "tag": "0.1.0"
+    "tag": "0.1.1"
   },
   "social_media_url": "https://twitter.com/douwebos_nl",
   "platforms": {

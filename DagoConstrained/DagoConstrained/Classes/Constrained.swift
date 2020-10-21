@@ -101,6 +101,16 @@ public enum ConstrainedRatioRelation {
 }
 
 
+public enum ConstraintYAxisAnchor {
+    case top
+    case bottom
+}
+
+public enum ConstraintXAxisAnchor {
+    case leading
+    case trailing
+}
+
 /// Different constraint types available
 public enum ConstrainedType {
     case center
@@ -443,6 +453,33 @@ extension Constrained where Base: UIView {
 
 // MARK: - Top Constraints
 extension Constrained where Base: UIView {
+    @discardableResult
+    public func top(
+        to view: UIView,
+        anchor: ConstraintYAxisAnchor = .top,
+        constant: CGFloat = 0.0,
+        relation: ConstrainedAnchorRelation = .equal,
+        priority: UILayoutPriority? = nil,
+        isActive: Bool = true
+    ) -> NSLayoutConstraint {
+        switch anchor {
+        case .top:
+            return top(to: view.topAnchor,
+                       constant: constant,
+                       relation: relation,
+                       priority: priority,
+                       isActive: isActive
+            )
+        case .bottom:
+            return top(to: view.bottomAnchor,
+                       constant: constant,
+                       relation: relation,
+                       priority: priority,
+                       isActive: isActive
+            )
+        }
+    }
+    
     @discardableResult
     public func top(
         to anchor: NSLayoutAnchor<NSLayoutYAxisAnchor>,

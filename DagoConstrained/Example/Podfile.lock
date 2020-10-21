@@ -1,5 +1,5 @@
 PODS:
-  - DagoConstrained (0.1.0)
+  - DagoConstrained (0.1.1)
 
 DEPENDENCIES:
   - DagoConstrained (from `../`)
@@ -9,7 +9,7 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  DagoConstrained: 476e191cb18ba4f90f35621a48ff6f87b12ceb07
+  DagoConstrained: a426e689add24a74db40f5f8df288e88f2ba9c5c
 
 PODFILE CHECKSUM: 8ada67d92185b1a8444cb7b10433f780368e2709
 

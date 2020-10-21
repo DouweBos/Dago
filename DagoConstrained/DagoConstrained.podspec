@@ -26,5 +26,7 @@ The final goal is to be able to write UI code on either Android (Kotlin) or iOS 
   s.ios.deployment_target = '10.0'
   s.tvos.deployment_target = '10.0'
 
-  s.source_files = 'Swift/DagoConstrained/DagoConstrained/Classes/**/*'
+  s.source_files = 'DagoConstrained/Classes/**/*'
+  
+  # s.dependency 'RxSwift', '~> 5'
 end
