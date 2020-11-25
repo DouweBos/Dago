@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'DagoConstrained'
-  s.version          = '0.1.3'
+  s.version          = '0.1.4'
   s.summary          = 'Swift implementation of the Dago Constrained API.'
 
   s.description      = <<-DESC
