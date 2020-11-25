@@ -791,3 +791,19 @@ extension Constrained where Base: UIView {
         return constraint
     }
 }
+
+extension Constrained where Base: UIView {
+    public func hugging(
+        axis: NSLayoutConstraint.Axis,
+        priority: UILayoutPriority = .required
+    ) {
+        self.base.setContentHuggingPriority(priority, for: axis)
+    }
+    
+    public func compression(
+        axis: NSLayoutConstraint.Axis,
+        priority: UILayoutPriority = .required
+    ) {
+        self.base.setContentCompressionResistancePriority(priority, for: axis)
+    }
+}

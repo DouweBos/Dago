@@ -26,11 +26,11 @@ The final goal is to be able to write UI code on either Android (Kotlin) or iOS 
   s.ios.deployment_target = '10.0'
   s.tvos.deployment_target = '10.0'
   
-  s.subspec 'DagoConstrained' do |ss|
+  s.subspec 'Constrained' do |ss|
     ss.dependency 'DagoConstrained', "~> #{s.version}"
   end
   
-  s.subspec 'DagoTracked' do |ss|
+  s.subspec 'Tracked' do |ss|
     ss.dependency 'DagoTracked', "~> #{s.version}"
   end
 end
