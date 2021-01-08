@@ -1,0 +1,16 @@
+PODS:
+  - DagoCore (0.1.0)
+
+DEPENDENCIES:
+  - DagoCore (from `../`)
+
+EXTERNAL SOURCES:
+  DagoCore:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  DagoCore: 42fac962e52061f2e571139252e744bea659fbd6
+
+PODFILE CHECKSUM: 1ea9ea9bd2660929804528a5963a91bd665fcc72
+
+COCOAPODS: 1.9.3

@@ -26,11 +26,22 @@ The final goal is to be able to write UI code on either Android (Kotlin) or iOS 
   s.ios.deployment_target = '10.0'
   s.tvos.deployment_target = '10.0'
   
+  s.subspec 'Core' do |ss|
+    ss.source_files = 'DagoCore/DagoCore/Classes/**/*'
+  end
+
   s.subspec 'Constrained' do |ss|
-    ss.dependency 'DagoConstrained', "~> #{s.version}"
+    ss.source_files = 'DagoConstrained/DagoConstrained/Classes/**/*'
+
+    ss.dependency 'Dago/Core', "~> #{s.version}"
   end
   
   s.subspec 'Tracked' do |ss|
-    ss.dependency 'DagoTracked', "~> #{s.version}"
+    ss.source_files = 'DagoTracked/DagoTracked/Classes/**/*'
+
+    ss.dependency 'Dago/Core', "~> #{s.version}"
+  
+    ss.dependency 'RxSwift', '~> 5'
+    ss.dependency 'RxCocoa', '~> 5'
   end
 end

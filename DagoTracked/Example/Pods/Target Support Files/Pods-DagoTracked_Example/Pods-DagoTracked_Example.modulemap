@@ -1,6 +1,0 @@
-framework module Pods_DagoTracked_Example {
-  umbrella header "Pods-DagoTracked_Example-umbrella.h"
-
-  export *
-  module * { export * }
-}

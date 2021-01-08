@@ -6,7 +6,7 @@
 //  Copyright (c) 2020 douwebos. All rights reserved.
 //
 
-import DagoConstrained
+import Dago
 import RxSwift
 import RxGesture
 

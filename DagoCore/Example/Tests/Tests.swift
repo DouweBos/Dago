@@ -1,5 +1,5 @@
 import XCTest
-import Dago
+import DagoCore
 
 class Tests: XCTestCase {
     

@@ -1,6 +1,0 @@
-framework module DagoConstrained {
-  umbrella header "DagoConstrained-umbrella.h"
-
-  export *
-  module * { export * }
-}

@@ -7,8 +7,7 @@
 //
 
 import Foundation
-import DagoConstrained
-import DagoTracked
+import Dago
 
 protocol ExampleEvent: TrackedEvent where TrackedEventProperties == [String : Any] {}
 
