@@ -1,4 +1,8 @@
 PODS:
+  - Dago (0.1.4):
+    - Dago/Constrained (= 0.1.4)
+    - Dago/Core (= 0.1.4)
+    - Dago/Tracked (= 0.1.4)
   - Dago/Constrained (0.1.4):
     - Dago/Core (~> 0.1.4)
   - Dago/Core (0.1.4)
@@ -17,8 +21,7 @@ PODS:
   - RxSwift (5.1.1)
 
 DEPENDENCIES:
-  - Dago/Constrained (from `../../`)
-  - Dago/Tracked (from `../../`)
+  - Dago (from `../../`)
   - RxGesture
 
 SPEC REPOS:
@@ -39,6 +42,6 @@ SPEC CHECKSUMS:
   RxRelay: d77f7d771495f43c556cbc43eebd1bb54d01e8e9
   RxSwift: 81470a2074fa8780320ea5fe4102807cb7118178
 
-PODFILE CHECKSUM: 556597a6131ae43e35688b726232e29a40ede5b7
+PODFILE CHECKSUM: 81074385548346d0c54e60ded34158f495fdc837
 
 COCOAPODS: 1.9.3

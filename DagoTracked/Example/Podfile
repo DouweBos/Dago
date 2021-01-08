@@ -1,7 +1,7 @@
 use_frameworks!
 
 target 'DagoTracked_Example' do
-  pod 'DagoTracked', :path => '../../'
+  pod 'Dago', :path => '../../'
 
   target 'DagoTracked_Tests' do
     inherit! :search_paths
@@ -11,5 +11,5 @@ target 'DagoTracked_Example' do
 end
 
 target 'DagoTracked_tvOS_Example' do
-  pod 'DagoTracked', :path => '../../'
+  pod 'Dago', :path => '../../'
 end

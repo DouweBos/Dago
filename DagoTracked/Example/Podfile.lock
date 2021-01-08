@@ -1,5 +1,13 @@
 PODS:
-  - DagoTracked (0.1.2):
+  - Dago (0.1.4):
+    - Dago/Constrained (= 0.1.4)
+    - Dago/Core (= 0.1.4)
+    - Dago/Tracked (= 0.1.4)
+  - Dago/Constrained (0.1.4):
+    - Dago/Core (~> 0.1.4)
+  - Dago/Core (0.1.4)
+  - Dago/Tracked (0.1.4):
+    - Dago/Core (~> 0.1.4)
     - RxCocoa (~> 5)
     - RxSwift (~> 5)
   - RxCocoa (5.1.1):
@@ -10,7 +18,7 @@ PODS:
   - RxSwift (5.1.1)
 
 DEPENDENCIES:
-  - DagoTracked (from `../../`)
+  - Dago (from `../../`)
 
 SPEC REPOS:
   trunk:
@@ -19,15 +27,15 @@ SPEC REPOS:
     - RxSwift
 
 EXTERNAL SOURCES:
-  DagoTracked:
+  Dago:
     :path: "../../"
 
 SPEC CHECKSUMS:
-  DagoTracked: ce6f3ec30e86d42ef4c30c0441e558daa3f411e7
+  Dago: 605b92bfd057fed43e22a0582bf08c9cdc4198cb
   RxCocoa: 32065309a38d29b5b0db858819b5bf9ef038b601
   RxRelay: d77f7d771495f43c556cbc43eebd1bb54d01e8e9
   RxSwift: 81470a2074fa8780320ea5fe4102807cb7118178
 
-PODFILE CHECKSUM: a69e712e7610cb8b642d3fe9c7743ad50e96fdd3
+PODFILE CHECKSUM: 46080b447c19b5e1c01075a752b589ae7f6968a9
 
 COCOAPODS: 1.9.3
