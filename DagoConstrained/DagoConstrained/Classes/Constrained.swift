@@ -11,7 +11,7 @@ import UIKit
 public struct Constrained<Base> {
     /// Base object to extend.
     public let base: Base
-
+    
     /// Creates extensions with base object.
     ///
     /// - parameter base: Base object.
@@ -24,34 +24,34 @@ public struct Constrained<Base> {
 public protocol ConstrainedCompatible {
     /// Extended type
     associatedtype ConstrainedBase
-
-    /// Reactive extensions.
+    
+    /// Constrained extensions.
     static var constrained: Constrained<ConstrainedBase>.Type { get set }
-
-    /// Reactive extensions.
+    
+    /// Constrained extensions.
     var constrained: Constrained<ConstrainedBase> { get set }
 }
 
 extension ConstrainedCompatible {
-    /// Reactive extensions.
+    /// Constrained extensions.
     public static var constrained: Constrained<Self>.Type {
         get {
             return Constrained<Self>.self
         }
         // swiftlint:disable:next unused_setter_value
         set {
-            // this enables using Reactive to "mutate" base type
+            // this enables using Constrained to "mutate" base type
         }
     }
-
-    /// Reactive extensions.
+    
+    /// Constrained extensions.
     public var constrained: Constrained<Self> {
         get {
             return Constrained(self)
         }
         // swiftlint:disable:next unused_setter_value
         set {
-            // this enables using Reactive to "mutate" base object
+            // this enables using Constrained to "mutate" base object
         }
     }
 }
@@ -61,18 +61,18 @@ import class Foundation.NSObject
 extension NSObject: ConstrainedCompatible { }
 
 extension UIView {
-    /// Reactive extensions.
+    /// Constrained extensions.
     public static var constrained: Constrained<UIView>.Type {
         get {
             return Constrained<UIView>.self
         }
         // swiftlint:disable:next unused_setter_value
         set {
-            // this enables using Reactive to "mutate" base type
+            // this enables using Constrained to "mutate" base type
         }
     }
-
-    /// Reactive extensions.
+    
+    /// Constrained extensions.
     public var constrained: Constrained<UIView> {
         get {
             self.translatesAutoresizingMaskIntoConstraints = false
@@ -80,7 +80,7 @@ extension UIView {
         }
         // swiftlint:disable:next unused_setter_value
         set {
-            // this enables using Reactive to "mutate" base object
+            // this enables using Constrained to "mutate" base object
         }
     }
 }
@@ -147,9 +147,9 @@ extension Constrained where Base: UIView {
         safeArea: Bool = false
     ) {
         self.base.superview.also { superview in
-            clear(constraint: .margin)
-            
             top.also { topConstant in
+                clear(constraint: .top)
+                
                 self.top(
                     to: safeArea ? superview.layoutMarginsGuide.topAnchor : superview.topAnchor,
                     constant: topConstant,
@@ -159,6 +159,8 @@ extension Constrained where Base: UIView {
             }
             
             bottom.also { bottomConstant in
+                clear(constraint: .bottom)
+                
                 self.bottom(
                     to: safeArea ? superview.layoutMarginsGuide.bottomAnchor : superview.bottomAnchor,
                     constant: bottomConstant,
@@ -168,6 +170,8 @@ extension Constrained where Base: UIView {
             }
             
             leading.also { leadingConstant in
+                clear(constraint: .leading)
+                
                 self.leading(
                     to: safeArea ? superview.layoutMarginsGuide.leadingAnchor : superview.leadingAnchor,
                     constant: leadingConstant,
@@ -177,6 +181,8 @@ extension Constrained where Base: UIView {
             }
             
             trailing.also { trailingConstant in
+                clear(constraint: .trailing)
+                
                 self.trailing(
                     to: safeArea ? superview.layoutMarginsGuide.trailingAnchor : superview.trailingAnchor,
                     constant: trailingConstant,
@@ -267,8 +273,19 @@ extension Constrained where Base: UIView {
         }
     }
     
-    public func centerX(to view: UIView) {
-        self.centerX(to: view.centerXAnchor)
+    @discardableResult
+    public func centerX(
+        to view: UIView,
+        constant: CGFloat = 0.0,
+        priority: UILayoutPriority? = nil,
+        isActive: Bool = true
+    ) -> NSLayoutConstraint {
+        return self.centerX(
+            to: view.centerXAnchor,
+            constant: constant,
+            priority: priority,
+            isActive: isActive
+        )
     }
     
     public func centerY() {
@@ -279,8 +296,19 @@ extension Constrained where Base: UIView {
         }
     }
     
-    public func centerY(to view: UIView) {
-        self.centerY(to: view.centerYAnchor)
+    @discardableResult
+    public func centerY(
+        to view: UIView,
+        constant: CGFloat = 0.0,
+        priority: UILayoutPriority? = nil,
+        isActive: Bool = true
+    ) -> NSLayoutConstraint {
+        return self.centerY(
+            to: view.centerYAnchor,
+            constant: constant,
+            priority: priority,
+            isActive: isActive
+        )
     }
     
     public func fill(safeArea: Bool = false) {
@@ -514,6 +542,33 @@ extension Constrained where Base: UIView {
 extension Constrained where Base: UIView {
     @discardableResult
     public func bottom(
+        to view: UIView,
+        anchor: ConstraintYAxisAnchor = .bottom,
+        constant: CGFloat = 0.0,
+        relation: ConstrainedAnchorRelation = .equal,
+        priority: UILayoutPriority? = nil,
+        isActive: Bool = true
+    ) -> NSLayoutConstraint {
+        switch anchor {
+        case .top:
+            return bottom(to: view.topAnchor,
+                          constant: constant,
+                          relation: relation,
+                          priority: priority,
+                          isActive: isActive
+            )
+        case .bottom:
+            return bottom(to: view.bottomAnchor,
+                          constant: constant,
+                          relation: relation,
+                          priority: priority,
+                          isActive: isActive
+            )
+        }
+    }
+    
+    @discardableResult
+    public func bottom(
         to anchor: NSLayoutAnchor<NSLayoutYAxisAnchor>,
         constant: CGFloat = 0.0,
         relation: ConstrainedAnchorRelation = .equal,
@@ -546,6 +601,33 @@ extension Constrained where Base: UIView {
 extension Constrained where Base: UIView {
     @discardableResult
     public func leading(
+        to view: UIView,
+        anchor: ConstraintXAxisAnchor = .leading,
+        constant: CGFloat = 0.0,
+        relation: ConstrainedAnchorRelation = .equal,
+        priority: UILayoutPriority? = nil,
+        isActive: Bool = true
+    ) -> NSLayoutConstraint {
+        switch anchor {
+        case .leading:
+            return leading(to: view.leadingAnchor,
+                           constant: constant,
+                           relation: relation,
+                           priority: priority,
+                           isActive: isActive
+            )
+        case .trailing:
+            return leading(to: view.trailingAnchor,
+                           constant: constant,
+                           relation: relation,
+                           priority: priority,
+                           isActive: isActive
+            )
+        }
+    }
+    
+    @discardableResult
+    public func leading(
         to anchor: NSLayoutAnchor<NSLayoutXAxisAnchor>,
         constant: CGFloat = 0.0,
         relation: ConstrainedAnchorRelation = .equal,
@@ -576,6 +658,33 @@ extension Constrained where Base: UIView {
 
 // MARK: - Trailing Constraints
 extension Constrained where Base: UIView {
+    @discardableResult
+    public func trailing(
+        to view: UIView,
+        anchor: ConstraintXAxisAnchor = .trailing,
+        constant: CGFloat = 0.0,
+        relation: ConstrainedAnchorRelation = .equal,
+        priority: UILayoutPriority? = nil,
+        isActive: Bool = true
+    ) -> NSLayoutConstraint {
+        switch anchor {
+        case .leading:
+            return trailing(to: view.leadingAnchor,
+                            constant: constant,
+                            relation: relation,
+                            priority: priority,
+                            isActive: isActive
+            )
+        case .trailing:
+            return trailing(to: view.trailingAnchor,
+                            constant: constant,
+                            relation: relation,
+                            priority: priority,
+                            isActive: isActive
+            )
+        }
+    }
+    
     @discardableResult
     public func trailing(
         to anchor: NSLayoutAnchor<NSLayoutXAxisAnchor>,

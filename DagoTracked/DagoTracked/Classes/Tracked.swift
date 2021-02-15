@@ -36,33 +36,33 @@ public protocol TrackedCompatible {
     /// Extended type
     associatedtype TrackedBase
 
-    /// Reactive extensions.
+    /// Tracked  extensions.
     static var tracked: Tracked<TrackedBase>.Type { get set }
 
-    /// Reactive extensions.
+    /// Tracked extensions.
     var tracked: Tracked<TrackedBase> { get set }
 }
 
 extension TrackedCompatible {
-    /// Reactive extensions.
+    /// Tracked extensions.
     public static var tracked: Tracked<Self>.Type {
         get {
             return Tracked<Self>.self
         }
         // swiftlint:disable:next unused_setter_value
         set {
-            // this enables using Reactive to "mutate" base type
+            // this enables using Tracked to "mutate" base type
         }
     }
 
-    /// Reactive extensions.
+    /// Tracked extensions.
     public var tracked: Tracked<Self> {
         get {
             return Tracked(self)
         }
         // swiftlint:disable:next unused_setter_value
         set {
-            // this enables using Reactive to "mutate" base object
+            // this enables using Tracked to "mutate" base object
         }
     }
 }
