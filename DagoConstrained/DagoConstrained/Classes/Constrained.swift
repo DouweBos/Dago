@@ -217,7 +217,7 @@ extension Constrained where Base: UIView {
                 clear(constraint: .bottom)
                 self.bottom(
                     to: safeArea ? superview.layoutMarginsGuide.bottomAnchor : superview.bottomAnchor,
-                    constant: oldConstant + bottomConstant,
+                    constant: -(oldConstant + bottomConstant),
                     priority: nil,
                     isActive: true
                 )
@@ -239,7 +239,7 @@ extension Constrained where Base: UIView {
                 clear(constraint: .trailing)
                 self.trailing(
                     to: safeArea ? superview.layoutMarginsGuide.trailingAnchor : superview.trailingAnchor,
-                    constant: oldConstant + trailingConstant,
+                    constant: -(oldConstant + trailingConstant),
                     priority: nil,
                     isActive: true
                 )
