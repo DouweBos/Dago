@@ -139,15 +139,15 @@ extension Constrained where Base: UIView {
     ///   - leading: Leading margin
     ///   - trailing: Trailing margin
     ///   - safeArea: Whether the margins should be relative to the safe area layout guides, or not.
-    public func margin(
+    @inlinable public func margin(
         top: CGFloat? = nil,
         bottom: CGFloat? = nil,
         leading: CGFloat? = nil,
         trailing: CGFloat? = nil,
         safeArea: Bool = false
     ) {
-        self.base.superview.also { superview in
-            top.also { topConstant in
+        if let superview = self.base.superview {
+            if let topConstant = top {
                 clear(constraint: .top)
                 
                 self.top(
@@ -158,7 +158,7 @@ extension Constrained where Base: UIView {
                 )
             }
             
-            bottom.also { bottomConstant in
+            if let bottomConstant = bottom {
                 clear(constraint: .bottom)
                 
                 self.bottom(
@@ -169,7 +169,7 @@ extension Constrained where Base: UIView {
                 )
             }
             
-            leading.also { leadingConstant in
+            if let leadingConstant = leading {
                 clear(constraint: .leading)
                 
                 self.leading(
@@ -180,7 +180,7 @@ extension Constrained where Base: UIView {
                 )
             }
             
-            trailing.also { trailingConstant in
+            if let trailingConstant = trailing {
                 clear(constraint: .trailing)
                 
                 self.trailing(
@@ -193,17 +193,19 @@ extension Constrained where Base: UIView {
         }
     }
     
-    public func translate(
+    @inlinable public func translate(
         top: CGFloat? = nil,
         bottom: CGFloat? = nil,
         leading: CGFloat? = nil,
         trailing: CGFloat? = nil,
         safeArea: Bool = false
     ) {
-        self.base.superview.also { superview in
-            top.also { topConstant in
+        if let superview = self.base.superview {
+            if let topConstant = top {
                 let oldConstant = superview.constraints.filter { $0.firstAnchor == self.base.topAnchor }.first?.constant ?? 0.0
+                
                 clear(constraint: .top)
+                
                 self.top(
                     to: safeArea ? superview.layoutMarginsGuide.topAnchor : superview.topAnchor,
                     constant: oldConstant + topConstant,
@@ -212,20 +214,24 @@ extension Constrained where Base: UIView {
                 )
             }
             
-            bottom.also { bottomConstant in
+            if let bottomConstant = bottom {
                 let oldConstant = superview.constraints.filter { $0.firstAnchor == self.base.bottomAnchor }.first?.constant ?? 0.0
+                
                 clear(constraint: .bottom)
+                
                 self.bottom(
                     to: safeArea ? superview.layoutMarginsGuide.bottomAnchor : superview.bottomAnchor,
-                    constant: oldConstant + bottomConstant,
+                    constant: -(oldConstant + bottomConstant),
                     priority: nil,
                     isActive: true
                 )
             }
             
-            leading.also { leadingConstant in
+            if let leadingConstant = leading {
                 let oldConstant = superview.constraints.filter { $0.firstAnchor == self.base.leadingAnchor }.first?.constant ?? 0.0
+                
                 clear(constraint: .leading)
+                
                 self.leading(
                     to: safeArea ? superview.layoutMarginsGuide.leadingAnchor : superview.leadingAnchor,
                     constant: oldConstant + leadingConstant,
@@ -234,12 +240,14 @@ extension Constrained where Base: UIView {
                 )
             }
             
-            trailing.also { trailingConstant in
+            if let trailingConstant = trailing {
                 let oldConstant = superview.constraints.filter { $0.firstAnchor == self.base.trailingAnchor }.first?.constant ?? 0.0
+                
                 clear(constraint: .trailing)
+                
                 self.trailing(
                     to: safeArea ? superview.layoutMarginsGuide.trailingAnchor : superview.trailingAnchor,
-                    constant: oldConstant + trailingConstant,
+                    constant: -(oldConstant + trailingConstant),
                     priority: nil,
                     isActive: true
                 )
@@ -249,8 +257,8 @@ extension Constrained where Base: UIView {
     
     
     /// Center the view's center x and center y anchors to its parent view.
-    public func center() {
-        self.base.superview.also { superview in
+    @inlinable public func center() {
+        if let superview = self.base.superview {
             clear(constraint: .center)
             
             self.center(to: superview)
@@ -260,19 +268,20 @@ extension Constrained where Base: UIView {
     
     /// Center the view both horizontally and vertically relative to the given view
     /// - Parameter view: View to which the base view should be centered
-    public func center(to view: UIView) {
+    @inlinable public func center(to view: UIView) {
         self.centerX(to: view.centerXAnchor)
         self.centerY(to: view.centerYAnchor)
     }
     
-    public func centerX() {
-        self.base.superview.also { superview in
+    @inlinable public func centerX() {
+        if let superview = self.base.superview {
             clear(constraint: .centerX)
             
             self.centerX(to: superview)
         }
     }
     
+    @inlinable
     @discardableResult
     public func centerX(
         to view: UIView,
@@ -288,14 +297,15 @@ extension Constrained where Base: UIView {
         )
     }
     
-    public func centerY() {
-        self.base.superview.also { superview in
+    @inlinable public func centerY() {
+        if let superview = self.base.superview {
             clear(constraint: .centerY)
             
             self.centerY(to: superview)
         }
     }
     
+    @inlinable
     @discardableResult
     public func centerY(
         to view: UIView,
@@ -311,74 +321,74 @@ extension Constrained where Base: UIView {
         )
     }
     
-    public func fill(safeArea: Bool = false) {
+    @inlinable public func fill(safeArea: Bool = false) {
         self.margin(top: 0.0, bottom: 0.0, leading: 0.0, trailing: 0.0, safeArea: safeArea)
     }
     
-    public func fillVertically(safeArea: Bool = false) {
+    @inlinable public func fillVertically(safeArea: Bool = false) {
         self.margin(top: 0.0, bottom: 0.0, leading: nil, trailing: nil, safeArea: safeArea)
     }
     
-    public func fillHorizontally(safeArea: Bool = false) {
+    @inlinable public func fillHorizontally(safeArea: Bool = false) {
         self.margin(top: nil, bottom: nil, leading: 0.0, trailing: 0.0, safeArea: safeArea)
     }
     
-    public func frame(equals view: UIView) {
+    @inlinable public func frame(equals view: UIView) {
         clear(constraint: .frame)
         
         self.center(to: view)
         self.size(equals: view)
     }
     
-    public func size(equals view: UIView) {
+    @inlinable public func size(equals view: UIView) {
         clear(constraint: .size)
         
         self.width(equals: view)
         self.height(equals: view)
     }
     
-    public func width() {
-        self.base.superview.also { superview in
+    @inlinable public func width() {
+        if let superview = self.base.superview {
             clear(constraint: .width)
             
             self.width(equals: superview)
         }
     }
     
-    public func height() {
-        self.base.superview.also { superview in
+    @inlinable public func height() {
+        if let superview = self.base.superview {
             clear(constraint: .height)
             
             self.height(equals: superview)
         }
     }
     
-    public func top() {
-        self.base.superview.also { superview in
+    @inlinable public func top() {
+        if let superview = self.base.superview {
             clear(constraint: .top)
             
             self.top(to: superview.topAnchor)
         }
     }
     
-    public func bottom() {
-        self.base.superview.also { superview in
+    @inlinable public func bottom() {
+        if let superview = self.base.superview {
             clear(constraint: .bottom)
             
             self.bottom(to: superview.bottomAnchor)
         }
     }
     
-    public func leading() {
-        self.base.superview.also { superview in
+    @inlinable public func leading() {
+        if let superview = self.base.superview {
             clear(constraint: .leading)
             
             self.leading(to: superview.leadingAnchor)
         }
     }
     
-    public func trailing() {
-        self.base.superview.also { superview in
+    @inlinable public func trailing() {
+        if let superview = self.base.superview {
             clear(constraint: .trailing)
             
             self.trailing(to: superview.trailingAnchor)
@@ -389,19 +399,19 @@ extension Constrained where Base: UIView {
 
 // MARK: - Clear Constraints
 extension Constrained where Base: UIView {
-    public func clear(constraint: ConstrainedType) {
+    @inlinable public func clear(constraint: ConstrainedType) {
         switch constraint {
         case .center:
             clear(constraint: .centerX)
             clear(constraint: .centerY)
         case .centerX:
-            self.base.superview.also { superview in
+            if let superview = self.base.superview {
                 superview.removeConstraints(
                     superview.constraints.filter { $0.firstAnchor == self.base.centerXAnchor }
                 )
             }
         case .centerY:
-            self.base.superview.also { superview in
+            if let superview = self.base.superview {
                 superview.removeConstraints(
                     superview.constraints.filter { $0.firstAnchor == self.base.centerYAnchor }
                 )
@@ -418,7 +428,7 @@ extension Constrained where Base: UIView {
             clear(constraint: .width)
             clear(constraint: .height)
         case .bottom:
-            self.base.superview.also { superview in
+            if let superview = self.base.superview {
                 superview.removeConstraints(
                     superview.constraints.filter { $0.firstAnchor == self.base.bottomAnchor }
                 )
@@ -428,13 +438,13 @@ extension Constrained where Base: UIView {
                 self.base.constraints.filter { $0.firstAnchor == self.base.heightAnchor && $0.secondAnchor != self.base.widthAnchor }
             )
             
-            self.base.superview.also { superview in
+            if let superview = self.base.superview {
                 superview.removeConstraints(
                     superview.constraints.filter { $0.firstAnchor == self.base.heightAnchor }
                 )
             }
         case .leading:
-            self.base.superview.also { superview in
+            if let superview = self.base.superview {
                 superview.removeConstraints(
                     superview.constraints.filter { $0.firstAnchor == self.base.leadingAnchor }
                 )
@@ -448,13 +458,13 @@ extension Constrained where Base: UIView {
                     }
             )
         case .top:
-            self.base.superview.also { superview in
+            if let superview = self.base.superview {
                 superview.removeConstraints(
                     superview.constraints.filter { $0.firstAnchor == self.base.topAnchor }
                 )
             }
         case .trailing:
-            self.base.superview.also { superview in
+            if let superview = self.base.superview {
                 superview.removeConstraints(
                     superview.constraints.filter { $0.firstAnchor == self.base.trailingAnchor }
                 )
@@ -464,7 +474,7 @@ extension Constrained where Base: UIView {
                 self.base.constraints.filter { $0.firstAnchor == self.base.widthAnchor && $0.secondAnchor != self.base.heightAnchor }
             )
             
-            self.base.superview.also { superview in
+            if let superview = self.base.superview {
                 superview.removeConstraints(
                     superview.constraints.filter { $0.firstAnchor == self.base.widthAnchor }
                 )
@@ -481,6 +491,7 @@ extension Constrained where Base: UIView {
 
 // MARK: - Top Constraints
 extension Constrained where Base: UIView {
+    @inlinable
     @discardableResult
     public func top(
         to view: UIView,
@@ -508,6 +519,7 @@ extension Constrained where Base: UIView {
         }
     }
     
+    @inlinable
     @discardableResult
     public func top(
         to anchor: NSLayoutAnchor<NSLayoutYAxisAnchor>,
@@ -527,8 +539,8 @@ extension Constrained where Base: UIView {
             constraint = self.base.topAnchor.constraint(lessThanOrEqualTo: anchor, constant: constant)
         }
         
-        priority.also {
-            constraint.priority = $0
+        if let priority = priority {
+            constraint.priority = priority
         }
         
         constraint.isActive = isActive
@@ -540,6 +552,7 @@ extension Constrained where Base: UIView {
 
 // MARK: - Bottom Constraints
 extension Constrained where Base: UIView {
+    @inlinable 
     @discardableResult
     public func bottom(
         to view: UIView,
@@ -567,6 +580,7 @@ extension Constrained where Base: UIView {
         }
     }
     
+    @inlinable
     @discardableResult
     public func bottom(
         to anchor: NSLayoutAnchor<NSLayoutYAxisAnchor>,
@@ -586,8 +600,8 @@ extension Constrained where Base: UIView {
             constraint = self.base.bottomAnchor.constraint(lessThanOrEqualTo: anchor, constant: constant * -1.0)
         }
         
-        priority.also {
-            constraint.priority = $0
+        if let priority = priority {
+            constraint.priority = priority
         }
         
         constraint.isActive = isActive
@@ -599,6 +613,7 @@ extension Constrained where Base: UIView {
 
 // MARK: - Leading Constraints
 extension Constrained where Base: UIView {
+    @inlinable
     @discardableResult
     public func leading(
         to view: UIView,
@@ -626,6 +641,7 @@ extension Constrained where Base: UIView {
         }
     }
     
+    @inlinable
     @discardableResult
     public func leading(
         to anchor: NSLayoutAnchor<NSLayoutXAxisAnchor>,
@@ -645,8 +661,8 @@ extension Constrained where Base: UIView {
             constraint = self.base.leadingAnchor.constraint(lessThanOrEqualTo: anchor, constant: constant)
         }
         
-        priority.also {
-            constraint.priority = $0
+        if let priority = priority {
+            constraint.priority = priority
         }
         
         constraint.isActive = isActive
@@ -658,6 +674,7 @@ extension Constrained where Base: UIView {
 
 // MARK: - Trailing Constraints
 extension Constrained where Base: UIView {
+    @inlinable
     @discardableResult
     public func trailing(
         to view: UIView,
@@ -685,6 +702,7 @@ extension Constrained where Base: UIView {
         }
     }
     
+    @inlinable
     @discardableResult
     public func trailing(
         to anchor: NSLayoutAnchor<NSLayoutXAxisAnchor>,
@@ -704,8 +722,8 @@ extension Constrained where Base: UIView {
             constraint = self.base.trailingAnchor.constraint(lessThanOrEqualTo: anchor, constant: constant * -1.0)
         }
         
-        priority.also {
-            constraint.priority = $0
+        if let priority = priority {
+            constraint.priority = priority
         }
         
         constraint.isActive = isActive
@@ -717,6 +735,7 @@ extension Constrained where Base: UIView {
 
 // MARK: - Center Constraints
 extension Constrained where Base: UIView {
+    @inlinable
     @discardableResult
     public func centerX(
         to anchor: NSLayoutAnchor<NSLayoutXAxisAnchor>,
@@ -726,8 +745,8 @@ extension Constrained where Base: UIView {
     ) -> NSLayoutConstraint {
         let constraint = self.base.centerXAnchor.constraint(equalTo: anchor, constant: constant)
         
-        priority.also {
-            constraint.priority = $0
+        if let priority = priority {
+            constraint.priority = priority
         }
         
         constraint.isActive = isActive
@@ -735,6 +754,7 @@ extension Constrained where Base: UIView {
         return constraint
     }
     
+    @inlinable
     @discardableResult
     public func centerY(
         to anchor: NSLayoutAnchor<NSLayoutYAxisAnchor>,
@@ -744,8 +764,8 @@ extension Constrained where Base: UIView {
     ) -> NSLayoutConstraint {
         let constraint = self.base.centerYAnchor.constraint(equalTo: anchor, constant: constant)
         
-        priority.also {
-            constraint.priority = $0
+        if let priority = priority {
+            constraint.priority = priority
         }
         
         constraint.isActive = isActive
@@ -757,6 +777,7 @@ extension Constrained where Base: UIView {
 
 // MARK: - Height Constraints
 extension Constrained where Base: UIView {
+    @inlinable
     @discardableResult
     public func height(
         equals view: UIView,
@@ -776,8 +797,8 @@ extension Constrained where Base: UIView {
             constraint = self.base.heightAnchor.constraint(lessThanOrEqualTo: view.heightAnchor, multiplier: multiplier)
         }
         
-        priority.also {
-            constraint.priority = $0
+        if let priority = priority {
+            constraint.priority = priority
         }
         
         constraint.isActive = isActive
@@ -785,6 +806,7 @@ extension Constrained where Base: UIView {
         return constraint
     }
     
+    @inlinable
     @discardableResult
     public func height(
         equals constant: CGFloat,
@@ -803,8 +825,8 @@ extension Constrained where Base: UIView {
             constraint = self.base.heightAnchor.constraint(lessThanOrEqualToConstant: constant)
         }
         
-        priority.also {
-            constraint.priority = $0
+        if let priority = priority {
+            constraint.priority = priority
         }
         
         constraint.isActive = isActive
@@ -816,6 +838,7 @@ extension Constrained where Base: UIView {
 
 // MARK: - Width Constraints
 extension Constrained where Base: UIView {
+    @inlinable
     @discardableResult
     public func width(
         equals view: UIView,
@@ -835,8 +858,8 @@ extension Constrained where Base: UIView {
             constraint = self.base.widthAnchor.constraint(lessThanOrEqualTo: view.widthAnchor, multiplier: multiplier)
         }
         
-        priority.also {
-            constraint.priority = $0
+        if let priority = priority {
+            constraint.priority = priority
         }
         
         constraint.isActive = isActive
@@ -844,6 +867,7 @@ extension Constrained where Base: UIView {
         return constraint
     }
     
+    @inlinable
     @discardableResult
     public func width(
         equals constant: CGFloat,
@@ -862,8 +886,8 @@ extension Constrained where Base: UIView {
             constraint = self.base.widthAnchor.constraint(lessThanOrEqualToConstant: constant)
         }
         
-        priority.also {
-            constraint.priority = $0
+        if let priority = priority {
+            constraint.priority = priority
         }
         
         constraint.isActive = isActive
@@ -875,6 +899,7 @@ extension Constrained where Base: UIView {
 
 // MARK: - Aspect Ratio Constraints
 extension Constrained where Base: UIView {
+    @inlinable
     @discardableResult
     public func ratio(
         ratio: CGFloat,
@@ -891,8 +916,8 @@ extension Constrained where Base: UIView {
             constraint = self.base.heightAnchor.constraint(equalTo: self.base.widthAnchor, multiplier: ratio)
         }
         
-        priority.also {
-            constraint.priority = $0
+        if let priority = priority {
+            constraint.priority = priority
         }
         
         constraint.isActive = isActive
@@ -902,14 +927,14 @@ extension Constrained where Base: UIView {
 }
 
 extension Constrained where Base: UIView {
-    public func hugging(
+    @inlinable public func hugging(
         axis: NSLayoutConstraint.Axis,
         priority: UILayoutPriority = .required
     ) {
         self.base.setContentHuggingPriority(priority, for: axis)
     }
     
-    public func compression(
+    @inlinable public func compression(
         axis: NSLayoutConstraint.Axis,
         priority: UILayoutPriority = .required
     ) {
