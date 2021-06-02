@@ -13,12 +13,13 @@ public protocol ConstrainedCustomAddChildView {
 }
 
 extension UIStackView: ConstrainedCustomAddChildView {
-    public func addChild(view: UIView) {
+    @inlinable public func addChild(view: UIView) {
         addArrangedSubview(view)
     }
 }
 
 public extension ConstrainedCompatible where Self: UIView {
+    @inlinable
     @discardableResult
     static func instance(
         initializer: (() -> Self)? = nil,
@@ -29,6 +30,7 @@ public extension ConstrainedCompatible where Self: UIView {
         return instance
     }
     
+    @inlinable
     @discardableResult
     static func with(
         initializer: (() -> Self)? = nil,
@@ -48,6 +50,7 @@ public extension ConstrainedCompatible where Self: UIView {
 }
 
 public extension UIStackView {
+    @inlinable
     @discardableResult
     static func with(parent: UIView, arrangedSubviews: [UIView], handler: ((UIStackView) throws -> Void)? = nil) rethrows -> UIStackView {
         return try UIStackView.with(
@@ -58,6 +61,7 @@ public extension UIStackView {
     }
 }
 public extension UIImageView {
+    @inlinable
     @discardableResult
     static func with(parent: UIView, image: UIImage?, handler: ((UIImageView) throws -> Void)? = nil) rethrows -> UIImageView {
         return try UIImageView.with(
