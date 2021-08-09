@@ -41,7 +41,7 @@ The final goal is to be able to write UI code on either Android (Kotlin) or iOS 
 
     ss.dependency 'Dago/Core', "~> #{s.version}"
   
-    ss.dependency 'RxSwift', '~> 5'
-    ss.dependency 'RxCocoa', '~> 5'
+    ss.dependency 'RxSwift', '~> 6'
+    ss.dependency 'RxCocoa', '~> 6'
   end
 end
