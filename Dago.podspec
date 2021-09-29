@@ -44,4 +44,15 @@ The final goal is to be able to write UI code on either Android (Kotlin) or iOS 
     ss.dependency 'RxSwift', '~> 6'
     ss.dependency 'RxCocoa', '~> 6'
   end
+  
+  s.subspec 'Components' do |ss|
+    ss.source_files = 'DagoComponents/DagoComponents/Classes/**/*'
+    
+    ss.dependency 'Dago/Core', "~> #{s.version}"
+
+    ss.dependency 'RxSwift', '~> 6'
+    ss.dependency 'RxDataSources'
+
+    ss.dependency 'DJBExtensionKit'
+  end
 end
