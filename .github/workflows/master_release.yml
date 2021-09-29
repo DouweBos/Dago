@@ -12,13 +12,13 @@ jobs:
       - name: Checkout Repo
         uses: actions/checkout@v2
         with:
-          token: ${{ secrets.GH_PAT_DJBEXTENSIONKIT_PUSH }}
+          token: ${{ secrets.GH_PAT_DAGO_SWIFT_PUSH }}
 
       - uses: webfactory/ssh-agent@v0.5.3
         with:
           ssh-private-key: |
                         ${{ secrets.DB_POD_SPECS_DEPLOY_KEY }}
-                        ${{ secrets.DB_DJBEXTENSIONKIT_DEPLOY_KEY }}
+                        ${{ secrets.DB_DAGO_SWIFT_DEPLOY_KEY }}
 
       - name: Setup git
         run: |

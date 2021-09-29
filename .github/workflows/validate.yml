@@ -15,7 +15,7 @@ jobs:
       - name: Checkout Repo
         uses: actions/checkout@v2
         with:
-          token: ${{ secrets.GH_PAT_DJBEXTENSIONKIT_PUSH }}
+          token: ${{ secrets.GH_PAT_DAGO_SWIFT_PUSH }}
 
       - name: Setup git
         run: |
