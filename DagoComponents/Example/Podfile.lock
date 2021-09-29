@@ -1,0 +1,16 @@
+PODS:
+  - DagoComponents (0.1.0)
+
+DEPENDENCIES:
+  - DagoComponents (from `../`)
+
+EXTERNAL SOURCES:
+  DagoComponents:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  DagoComponents: c086e099073b97b399066f7a50a0237fe0921c63
+
+PODFILE CHECKSUM: 996dd1cf970a51cc121006413aee75d70d3c9d57
+
+COCOAPODS: 1.10.1

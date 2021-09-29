@@ -42,6 +42,11 @@ Pods/
 
 Carthage/Build
 
+# Bundler
+.bundle
+
+# Bundler running on CI
+vendor/
 
 # Various
 
