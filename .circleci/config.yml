@@ -11,9 +11,12 @@ commands:
           name: Install Bundler
           command: |
             gem install bundler -v 1.17.2
+      - run:
+          name: Setup Bundler
+          command: bundle config set --local deployment 'true'
       - run: 
           name: Bundle Install
-          command: bundle install --path vendor/bundle --full-index
+          command: bundle install
       - run: 
           name: Pod Cache Clean
           command: bundle exec pod cache clean --all
