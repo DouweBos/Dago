@@ -132,7 +132,7 @@ platform :ios do
     # send slack failure notification
     slack(
         message: "Dago - Lane: *#{lane}* started",
-        slack_url: ENV["DOUWE_BOS_SLACK_COCOAPODS"].to_s,
+        slack_url: ENV["DB_SLACK_COCOAPODS_WEBHOOK"].to_s,
         success: true,
         default_payloads: [:git_branch, :last_git_commit_message]
     )
@@ -142,7 +142,7 @@ platform :ios do
     # send slack failure notification
     slack(
         message: "Dago - Lane: *#{lane}* finished",
-        slack_url: ENV["DOUWE_BOS_SLACK_COCOAPODS"].to_s,
+        slack_url: ENV["DB_SLACK_COCOAPODS_WEBHOOK"].to_s,
         success: true,
         default_payloads: [:git_branch, :last_git_commit_message]
     )
