@@ -1,0 +1,56 @@
+name: DJBExtensionKit
+
+on:
+  push:
+    branches:
+      - 'development'
+  pull_request:
+    branches:
+      - master
+
+jobs:
+  validate:
+    runs-on: macOS-latest
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v2
+        with:
+          token: ${{ secrets.GH_PAT_DJBEXTENSIONKIT_PUSH }}
+
+      - name: Setup git
+        run: |
+          git config --global user.name 'Douwe Bos'
+          git config --global user.email 'douwe@douwebos.nl'
+
+      # - name: Set up Ruby 2.6
+      #   uses: actions/setup-ruby@v1
+      #   env:
+      #     ruby-version: 2.6.x
+
+      # - uses: actions/cache@v1
+      #   with:
+      #     path: vendor/bundle
+      #     key: ${{ runner.os }}-gem-${{ hashFiles('**/Gemfile.lock') }}
+      #     restore-keys: |
+      #       ${{ runner.os }}-gem-
+
+      # - uses: actions/cache@v1
+      #   with:
+      #     path: Pods
+      #     key: ${{ runner.os }}-pods-${{ hashFiles('**/Podfile.lock') }}
+      #     restore-keys: |
+      #       ${{ runner.os }}-pods-
+
+      - name: Install Bundler
+        run: gem install bundler
+
+      - name: Setup Bundler
+        run: bundle config set --local deployment 'true'
+
+      - name: Bundle install
+        run: bundle install
+
+      - name: Validate Pod
+        run: bundle exec fastlane validate
+        env:
+          DB_SLACK_COCOAPODS_WEBHOOK: ${{ secrets.DB_SLACK_COCOAPODS_WEBHOOK }}

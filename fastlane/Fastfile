@@ -15,64 +15,117 @@
 
 default_platform(:ios)
 
-def versioned_commit(podspec)
-  version = version_get_podspec(path: podspec)
+def versioned_commit(podspecs)
+  version = version_get_podspec(path: podspecs.first)
 
   if git_tag_exists(tag: version)
-    bump(podspec)
-    versioned_commit(podspec)
+    bump(podspecs)
+    versioned_commit(podspecs)
   else
     add_git_tag(
       tag: version
     )
 
-    push_to_git_remote(force: true)
+    push_to_git_remote(force: false)
   end
 end
 
-def bump(podspec)
-  version = version_bump_podspec(path: podspec, bump_type: "patch")
+def bump(podspecs)
+  podspecs.each {|spec| 
+    version_bump_podspec(
+      path: spec, 
+      bump_type: "patch"
+    ) 
+  }
 
-  git_commit_message = "[ci skip]" + podspec + " - Fastlane Version Bump - Version: " + version
-  git_commit(path: [podspec],
-             message: git_commit_message)
+  version = version_get_podspec(path: podspecs.first)
 
-  push_to_git_remote(force: true)
+  git_commit_message = "[ci skip] Dago - Fastlane Version Bump - Version: " + version
+  git_commit(
+    path: podspecs,
+    message: git_commit_message
+  )
+
+  push_to_git_remote(force: false)
 end
 
-def push_podspec(podspec)
-  pod_push(path: podspec, 
-           repo: "douwebos", 
-           sources: ["https://github.com/DouweBos/DJB-Pod-Specs", "https://cdn.cocoapods.org/"],
-           allow_warnings: true
-          )
+def push_podspec(podspecs)
+  podspecs.each {|spec| 
+    pod_push(
+      path: spec, 
+      repo: "douwebos", 
+      sources: ["https://github.com/DouweBos/DJB-Pod-Specs", "https://cdn.cocoapods.org/"], 
+      allow_warnings: true
+    ) 
+  }
+end
+
+def lib_lint_podspec(podspecs)
+  podspecs.each {|spec| 
+    sh('bundle exec pod cache clean --all')
+    sh('bundle exec pod lib lint ../' + spec + ' --sources="https://github.com/DouweBos/DJB-Pod-Specs","https://cdn.cocoapods.org/" --allow-warnings')
+  }
+end
+
+def spec_lint_podspec(podspecs)
+  podspecs.each {|spec| 
+    sh('bundle exec pod cache clean --all')
+    sh('bundle exec pod spec lint ../' + spec + ' --sources="https://github.com/DouweBos/DJB-Pod-Specs","https://cdn.cocoapods.org/" --allow-warnings')
+  }
+end
+
+def commit_docs
+  docs_path = "../Docs/*"
+  git_commit_message = "[ci skip] Dago - Jazzy Documentation"
+  git_command = "git add --all " + docs_path + " && git commit -m \"" + git_commit_message + "\""
+  
+  sh(git_command)
+
+  push_to_git_remote(force: false)
 end
 
 platform :ios do
-  before_all do
-    setup_circle_ci
-  end
-
-  desc "Push a Dago version to DouweBos Pod Specs"
-  lane :release do
-    podspec = "Dago.podspec"
-    versioned_commit(podspec)
-
-    push_podspec(podspec)
-
-    version = version_get_podspec(path: podspec)
-
-    slack(
-      slack_url: ENV["DOUWE_BOS_SLACK_COCOAPODS"].to_s,
-      message: "*Dago Version #{version}* is now available.",
-      success: true,
-      default_payloads: [:git_branch, :last_git_commit_message]
-    )
-  end
-
   desc "Validate Dago pod spec"
   lane :validate do
-    sh('bundle exec pod lib lint ../Dago.podspec --sources="https://github.com/DouweBos/DJB-Pod-Specs","https://cdn.cocoapods.org/" --allow-warnings')
+    ensure_git_status_clean
+
+    podspecs = Array[
+      "Dago.podspec"
+    ]
+
+    lib_lint_podspec(podspecs)
+  end
+
+  desc "Push a Dago version to Douwe Pod Specs"
+  lane :release do
+    ensure_git_status_clean
+
+    podspecs = Array[
+      "Dago.podspec"
+    ]
+
+    lib_lint_podspec(podspecs)
+
+    versioned_commit(podspecs)
+
+    push_podspec(podspecs)
+
+    spec_lint_podspec(podspecs)
+
+    bump(podspecs)
+  end
+
+  desc "Generate Jazzy documentation"
+  lane :documentation do
+    ensure_git_status_clean
+
+    jazzy_file = "jazzy.yml"
+
+    jazzy(config: jazzy_file)
+
+    sleep(5)
+
+    commit_docs()
   end
 
   before_each do |lane, options|
@@ -100,10 +153,9 @@ platform :ios do
     # send slack failure notification
     slack(
         message: "Dago - Lane: *#{lane}* failed with exception: #{exception}",
-        slack_url: ENV["DOUWE_BOS_SLACK_COCOAPODS"].to_s,
+        slack_url: ENV["DB_SLACK_COCOAPODS_WEBHOOK"].to_s,
         success: false,
         default_payloads: [:git_branch, :last_git_commit_message]
     )
   end
-
 end
