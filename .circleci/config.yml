@@ -1,19 +1,34 @@
 version: 2.1
+commands:
+  setup_git:
+    steps:
+      - checkout
+      - run: git config user.email "douwe@douwebos.nl"
+      - run: git config user.name "Douwe Bos"
+  setup_bundler:
+    steps:
+      - run:
+          name: Install Bundler
+          command: |
+            gem install bundler -v 1.17.2
+      - run: 
+          name: Bundle Install
+          command: bundle install --path vendor/bundle --full-index
+      - run: 
+          name: Pod Cache Clean
+          command: bundle exec pod cache clean --all
+      - run: 
+          name: Add DouweBos Pod Repo
+          command: "bundle exec pod repo add douwebos https://github.com/DouweBos/DJB-Pod-Specs"
+
 jobs: 
   push_pod_spec: 
     macos: 
       xcode: "12.0.0"
     shell: "/bin/bash --login -o pipefail"
     steps: 
-      - checkout
-      - run: git config user.email "douwe@douwebos.nl"
-      - run: git config user.name "Douwe Bos"
-      - run:
-          name: Install Dependencies
-          command: |
-            gem install bundler -v 1.17.2
-      - run: "bundle install --path vendor/bundle --full-index"
-      - run: "bundle exec pod repo add douwebos https://github.com/DouweBos/DJB-Pod-Specs"
+      - setup_git
+      - setup_bundler
       - run: 
           command: "bundle exec bundle exec fastlane release"
           name: Fastlane
@@ -24,15 +39,8 @@ jobs:
       xcode: "12.0.0"
     shell: "/bin/bash --login -o pipefail"
     steps: 
-      - checkout
-      - run: git config user.email "douwe@douwebos.nl"
-      - run: git config user.name "Douwe Bos"
-      - run:
-          name: Install Dependencies
-          command: |
-            gem install bundler -v 1.17.2
-      - run: "bundle install --path vendor/bundle --full-index"
-      - run: "bundle exec pod repo add douwebos https://github.com/DouweBos/DJB-Pod-Specs"
+      - setup_git
+      - setup_bundler
       - run: 
           command: "bundle exec bundle exec fastlane validate"
           name: Fastlane
