@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'Dago'
-  s.version          = '0.1.10'
+  s.version          = '0.1.11'
   s.summary          = 'Swift implementation of the Dago API.'
 
   s.description      = <<-DESC
