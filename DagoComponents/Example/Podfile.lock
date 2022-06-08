@@ -1,9 +1,9 @@
 PODS:
-  - Dago/Components (0.1.10):
-    - Dago/Core (~> 0.1.10)
+  - Dago/Components (0.1.11):
+    - Dago/Core (~> 0.1.11)
     - RxDataSources
     - RxSwift (~> 6)
-  - Dago/Core (0.1.10)
+  - Dago/Core (0.1.11)
   - Differentiator (5.0.0)
   - RxCocoa (6.5.0):
     - RxRelay (= 6.5.0)
@@ -32,7 +32,7 @@ EXTERNAL SOURCES:
     :path: "../../Dago.podspec"
 
 SPEC CHECKSUMS:
-  Dago: dbedff4e8bd33c7a45c03f2819b72159e8d18eef
+  Dago: 07be90f0ec70463fe5ddc16845e62a46929ced18
   Differentiator: e8497ceab83c1b10ca233716d547b9af21b9344d
   RxCocoa: 94f817b71c07517321eb4f9ad299112ca8af743b
   RxDataSources: aa47cc1ed6c500fa0dfecac5c979b723542d79cf
