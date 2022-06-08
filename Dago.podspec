@@ -52,7 +52,5 @@ The final goal is to be able to write UI code on either Android (Kotlin) or iOS 
 
     ss.dependency 'RxSwift', '~> 6'
     ss.dependency 'RxDataSources'
-
-    ss.dependency 'DJBExtensionKit'
   end
 end

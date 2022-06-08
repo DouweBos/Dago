@@ -9,7 +9,6 @@ import Foundation
 import UIKit
 import RxSwift
 import RxDataSources
-import DJBExtensionKit
 
 // MARK: - Dago Collection Section
 open class DagoCollectionSection: SectionModelType {

@@ -3,7 +3,7 @@ use_frameworks!
 platform :ios, '10.0'
 
 target 'DagoComponents_Example' do
-  pod 'DagoComponents', :path => '../'
+  pod 'Dago/Components', :path => '../../Dago.podspec'
 
   target 'DagoComponents_Tests' do
     inherit! :search_paths
